@@ -1,0 +1,1 @@
+../configure --without-gmp --without-mpc --without-mpfr --disable-werror --target=nios2-unknown-linux-gnu
