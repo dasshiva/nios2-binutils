@@ -93,7 +93,7 @@ __libc_lock_define_initialized (static, lock);
 #endif
 
 /* Some optimizations for glibc.  */
-#ifdef _LIBC
+#if defined(__GLIBC__)
 # define FEOF(fp)		feof_unlocked (fp)
 # define FGETS(buf, n, fp)	fgets_unlocked (buf, n, fp)
 #else
@@ -110,6 +110,10 @@ __libc_lock_define_initialized (static, lock);
 # define freea(p) free (p)
 #endif
 
+// disable use of *_unlocked() functions as many systems do not
+// provide these, there might be a loss in performance but its
+// a compromise to make to allow building on other systems easily
+/*
 #if defined _LIBC_REENTRANT || defined HAVE_FGETS_UNLOCKED
 # undef fgets
 # define fgets(buf, len, s) fgets_unlocked (buf, len, s)
@@ -118,7 +122,7 @@ __libc_lock_define_initialized (static, lock);
 # undef feof
 # define feof(s) feof_unlocked (s)
 #endif
-
+*/
 
 struct alias_map
 {
