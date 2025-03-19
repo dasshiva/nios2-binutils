@@ -189,6 +189,7 @@
 #define R1_OP_OPX 58
 #define R1_OP_FLUSHD 59
 #define R1_OP_XORHI 60
+#define R1_OP_EXT   61
 
 #define R1_OPX_ERET 1
 #define R1_OPX_ROLI 2
@@ -232,6 +233,7 @@
 #define R1_OPX_SUB 57
 #define R1_OPX_SRAI 58
 #define R1_OPX_SRA 59
+#define R1_OPX_EXT_INC 60
 
 /* Some convenience macros for R1 encodings, for use in instruction tables.
    MATCH_R1_OPX0(NAME) and MASK_R1_OPX0 are used for R-type instructions
@@ -262,6 +264,8 @@
 /* And here's the match/mask macros for the R1 instruction set.  */
 #define MATCH_R1_ADD	MATCH_R1_OPX0 (ADD)
 #define MASK_R1_ADD	MASK_R1_OPX0
+#define MATCH_R1_INC  (R1_OP_EXT | (R1_OPX_EXT_INC << 6))
+#define MASK_R1_INC   (IW_R_C_SHIFTED_MASK)
 #define MATCH_R1_ADDI	MATCH_R1_OP (ADDI)
 #define MASK_R1_ADDI	MASK_R1_OP
 #define MATCH_R1_AND	MATCH_R1_OPX0 (AND)

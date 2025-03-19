@@ -42,6 +42,7 @@ enum iw_format_type {
   iw_r_type,
   iw_j_type,
   iw_custom_type,
+  r_type,
 
   /* 32-bit R2 formats.  */
   iw_L26_type,

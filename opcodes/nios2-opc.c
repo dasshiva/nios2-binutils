@@ -178,6 +178,8 @@ const struct nios2_opcode nios2_r1_opcodes[] =
        match, mask, pinfo, overflow } */
   {"add", "d,s,t", "d,s,t,E", 3, 4, iw_r_type,
    MATCH_R1_ADD, MASK_R1_ADD, 0, no_overflow},
+  {"inc", "d", "d, E", 1, 4, iw_r_type,
+   MATCH_R1_INC, MASK_R1_INC, 0, no_overflow},
   {"addi", "t,s,i", "t,s,i,E", 3, 4, iw_i_type,
    MATCH_R1_ADDI, MASK_R1_ADDI, 0, signed_immed16_overflow},
   {"and", "d,s,t", "d,s,t,E", 3, 4, iw_r_type,
